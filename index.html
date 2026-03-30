@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-card">
+            <h1>Insurance Registration Form</h1>
+            <p class="subtitle">Please fill in your details below</p>
+
+            <form id="registrationForm" novalidate>
+
+                <!-- ===== SECTION: Basic Data ===== -->
+                <fieldset>
+                    <legend>Basic Data</legend>
+
+                    <div class="form-group">
+                        <label>Sex <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="sex" value="Male" required>
+                                <span>Male</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="sex" value="Female" required>
+                                <span>Female</span>
+                            </label>
+                        </div>
+                        <span class="error-msg" id="sexError"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required>
+                            <span class="error-msg" id="firstNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="middleName">Middle Name</label>
+                            <input type="text" id="middleName" name="middleName" placeholder="Enter middle name">
+                            <span class="error-msg" id="middleNameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required>
+                            <span class="error-msg" id="lastNameError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pesel">PESEL <span class="required">*</span></label>
+                            <input type="text" id="pesel" name="pesel" placeholder="e.g. 90010112345" maxlength="11">
+                            <span class="error-msg" id="peselError"></span>
+                            <label class="foreigner-checkbox-label">
+                                <input type="checkbox" id="foreignerNoPesel">
+                                <span>Foreigner without a PESEL number</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth">
+                            <span class="error-msg" id="dateOfBirthError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="placeOfBirth">Place of Birth <span class="required">*</span></label>
+                            <input type="text" id="placeOfBirth" name="placeOfBirth" placeholder="City / town">
+                            <span class="error-msg" id="placeOfBirthError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="countryOfBirth">Country of Birth <span class="required">*</span></label>
+                            <input type="text" id="countryOfBirth" name="countryOfBirth" placeholder="Country">
+                            <span class="error-msg" id="countryOfBirthError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nationality">Nationality <span class="required">*</span></label>
+                            <input type="text" id="nationality" name="nationality" placeholder="e.g. Polish">
+                            <span class="error-msg" id="nationalityError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="secondNationality">Second Nationality</label>
+                            <input type="text" id="secondNationality" name="secondNationality" placeholder="If applicable">
+                            <span class="error-msg" id="secondNationalityError"></span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ===== SECTION: Identity Document ===== -->
+                <fieldset>
+                    <legend>Identity Document</legend>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="documentType">Type of Document <span class="required">*</span></label>
+                            <select id="documentType" name="documentType">
+                                <option value="" disabled selected>Choose a document type</option>
+                                <option value="ID">ID</option>
+                                <option value="Passport">Passport</option>
+                                <option value="Temporary Passport">Temporary Passport</option>
+                                <option value="Diplomatic Passport">Diplomatic Passport</option>
+                                <option value="MFA Service Passport">Ministry of Foreign Affairs Service Passport</option>
+                                <option value="Residence Card">Residence Card</option>
+                                <option value="Polish Foreigner's Identity Document">Polish Foreigner's Identity Document</option>
+                                <option value="Permission to Stay Tolerated">Permission to Stay Tolerated</option>
+                                <option value="Temporary Certificate of Identity of a Foreigner">Temporary Certificate of Identity of a Foreigner</option>
+                                <option value="Seaman Service Book">Seaman Service Book</option>
+                                <option value="Digital ID">Digital ID</option>
+                            </select>
+                            <span class="error-msg" id="documentTypeError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="documentNumber">Document Number <span class="required">*</span></label>
+                            <input type="text" id="documentNumber" name="documentNumber" placeholder="e.g. ABC123456">
+                            <span class="error-msg" id="documentNumberError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row-3">
+                        <div class="form-group">
+                            <label for="dateOfIssue">Date of Issue <span class="required">*</span></label>
+                            <input type="date" id="dateOfIssue" name="dateOfIssue">
+                            <span class="error-msg" id="dateOfIssueError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="expirationDate">Expiration Date (if applicable)</label>
+                            <input type="date" id="expirationDate" name="expirationDate">
+                            <span class="error-msg" id="expirationDateError"></span>
+                            <label class="expirationDate-checkbox-label">
+                                <input type="checkbox" id="expirationDateNotApplicable">
+                                <span>No expiration date</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="countryOfIssue">Country of Issue <span class="required">*</span></label>
+                            <input type="text" id="countryOfIssue" name="countryOfIssue" placeholder="Country">
+                            <span class="error-msg" id="countryOfIssueError"></span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ===== SECTION: Contact Details ===== -->
+                <fieldset>
+                    <legend>Contact Details</legend>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+48 123 456 789">
+                            <span class="error-msg" id="phoneError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com">
+                            <span class="error-msg" id="emailError"></span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ===== SECTION: Home Address ===== -->
+                <fieldset>
+                    <legend>Home Address</legend>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City <span class="required">*</span></label>
+                            <input type="text" id="city" name="city" placeholder="City">
+                            <span class="error-msg" id="cityError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode">Zip / Postal Code <span class="required">*</span></label>
+                            <input type="text" id="zipCode" name="zipCode" placeholder="e.g. 00-001">
+                            <span class="error-msg" id="zipCodeError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="countryOfResidence">Country of Residence <span class="required">*</span></label>
+                            <input type="text" id="countryOfResidence" name="countryOfResidence" placeholder="Country">
+                            <span class="error-msg" id="countryOfResidenceError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="addressLine">Address Line <span class="required">*</span></label>
+                            <input type="text" id="addressLine" name="addressLine" placeholder="Street, building, apartment">
+                            <span class="error-msg" id="addressLineError"></span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ===== SECTION: Plan Selection ===== -->
+                <fieldset>
+                    <legend>Plan Selection</legend>
+
+                    <div class="form-group">
+                        <label for="plan">Select a plan: <span class="required">*</span></label>
+                        <select id="plan" name="plan" required>
+                            <option value="" disabled selected>Choose a plan</option>
+                            <option value="Zdrowie Start (1992 PLN / year)">Zdrowie Start (1992 PLN / year)</option>
+                            <option value="Zdrowie Medium (2832 PLN / year)">Zdrowie Medium (2832 PLN / year)</option>
+                        </select>
+                        <span class="error-msg" id="planError"></span>
+                    </div>
+                </fieldset>
+
+
+                <!-- ===== SECTION: Consents ===== -->
+                <fieldset>
+                    <legend>Consents</legend>
+
+                    <div class="consent-group">
+                        <label class="consent-label select-all-label">
+                            <input type="checkbox" id="selectAll">
+                            <span><strong>Select all</strong></span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-cb" id="consent1" required>
+                            <span class="consent-text"><p><strong>(Required)</strong> I declare that I have disclosed to [[FIRMA]] all circumstances known to me that were asked about in the application form. I understand that [[FIRMA]] will not be liable for the consequences of any circumstances that were asked about but which I did not disclose to [[FIRMA]].</p></span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-cb" id="consent2" required>
+                            <span class="consent-text"><p><strong>(Required)</strong> I agree that [[FIRMA]] may disclose my personal data to a reinsurer or another insurer as necessary to:</p>
+<ul>
+<li>assess the insurance risk,</li>
+<li>verify the information provided by the policyholder, the insured, or the person on whose behalf the insurance contract is to be concluded,</li>
+<li>determine the insured’s entitlement to benefits under the insurance contract and the amount thereof,</li>
+<li>provide information regarding the cause of the insured’s death,</li>
+<li>provide information necessary to determine the beneficiary’s entitlement to benefits and the amount thereof.</li>
+</ul></span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-cb" id="consent3" required>
+                            <span class="consent-text"><p><strong>(Required)</strong> I agree that [[FIRMA]] may request information about my health from healthcare providers who have provided me with medical services, including:</p>
+<ul>
+<li>the reasons for my hospitalization, the diagnostic tests performed during my hospitalization and their results (excluding the results of genetic tests), other healthcare services provided to me, the results of my treatment, and the results of an autopsy, if one was performed;</li>
+<li>the reasons for my outpatient treatment, the diagnostic tests performed during it and their results (excluding the results of genetic tests), other healthcare services provided to me, and the results of the treatment;</li>
+<li>the results of consultations conducted;</li>
+<li>the cause of my death.</li>
+</ul>
+<p>I authorize [[FIRMA]] to request copies of my medical records from the indicated entities and I consent to their disclosure to [[FIRMA]]. [[FIRMA]] may request the indicated information and medical records in order to:</p>
+<ul>
+<li>assess the insurance risk and verify the information I have provided regarding my health condition;</li>
+<li>determine the entitlement to benefits under the concluded contract and the amount of such benefits.</li>
+</ul></span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-cb" id="consent4" required>
+                            <span class="consent-text"><p><strong>(Required)</strong> I agree that [[FIRMA]] may request the National Health Fund to provide the names and addresses of healthcare providers who provided me with healthcare services in connection with the occurrence of an insured event, in order to determine its liability and the amount of the benefit under the insurance contract.</p></span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-cb" id="consent5" required>
+                            <span class="consent-text"><p><strong>(Required)</strong> I hereby declare that I have received the Personal Data Controller’s Notice and am familiar with its contents.</p></span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-cb" id="consent6" required>
+                            <span class="consent-text"><p><strong>(Required)</strong> I hereby declare that [[FIRMA]] has provided me with:</p>
+<p>the general terms and conditions of insurance for the insurance contract I am applying to conclude,</p>
+<p>information about the insurance product.</p></span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-cb" id="consent7" required>
+                            <span class="consent-text"><p><strong>(Required)</strong> I declare that [[FIRMA]] has informed me that, as the policyholder, I may withdraw from the contract. After its conclusion, I may withdraw from it within 30 days.</p></span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" class="consent-cb" id="consent8" required>
+                            <span class="consent-text"><p><strong>(Required)</strong> I hereby declare that:</p>
+<p>in the past 5 years, I have not been diagnosed with any of the conditions listed below, nor am I currently undergoing diagnosis, treatment, or observation for any of them:</p>
+<p>cancers: malignant tumor, benign brain tumor,</p>
+<p>cardiovascular diseases: atherosclerosis, aneurysm, aortic dissection, embolism, thrombus, ischemic heart disease, heart attack, heart defect, arrhythmia, bacterial endocarditis,</p>
+<p>neurological diseases: Alzheimer’s, Huntington’s disease, Parkinson’s disease, transient ischemic attack, intracranial hemorrhage, stroke, paralysis, amyotrophic lateral sclerosis, multiple sclerosis, brain abscess, neuroborreliosis,</p>
+<p>blood disorders: aplastic anemia, hemophilia,</p>
+<p>lung diseases: chronic obstructive pulmonary disease, tuberculosis,</p>
+<p>kidney diseases: failure, glomerulonephritis, polycystic kidney disease,</p>
+<p>gastrointestinal diseases: Crohn’s disease, chronic liver and pancreatic diseases,</p>
+<p>infectious diseases: of the brain or meninges, sepsis, HIV/AIDS,</p>
+<p>Eye conditions: total loss of vision in one eye (due to illness),</p>
+<p>Ear conditions: total loss of hearing in one ear (due to illness),</p>
+<p>Other conditions: diabetes (excluding diabetes that occurred only during pregnancy), rheumatoid arthritis, systemic lupus erythematosus, alcoholism,</p>
+<p>during the past year, I have not undergone any medical examinations or consultations that resulted in a recommendation for further diagnostic testing and have not yet led to a diagnosis,</p>
+<p>on the date of signing the application-policy:</p>
+<p>I am not on sick leave, in the hospital, nor do I have a referral to the hospital—except for those related solely to: treatment of acute respiratory infections, fractures, sprains, or dislocations of the limbs, surgery (appendectomy, cholecystectomy, inguinal hernia repair, tonsillectomy, septoplasty), pregnancy or childbirth, or sick leave for the purpose of caring for another person,</p>
+<p>I am not staying at and do not have a referral to: a hospice, a facility for the chronically ill, or any other care and treatment facility,</p>
+<p>I have not been certified by a competent authority, nor am I applying for certification, as: unable to work or unable to serve.</p>
+<p><strong>IMPORTANT!</strong> If any of the statements above is not true in your case and you nevertheless sign the application-policy, pursuant to Article 815 of the Civil Code, [[FIRMA]] may refuse to pay the benefit.</p></span>
+                        </label>
+                    </div>
+                </fieldset>                <button type="submit" id="submitBtn">
+                    <span class="btn-text">Submit</span>
+                    <span class="btn-loading" style="display:none;">Submitting...</span>
+                </button>
+            </form>
+
+            <div id="successMessage" class="message success" style="display:none;">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Your data has been submitted successfully!</span>
+            </div>
+
+            <div id="errorMessage" class="message error" style="display:none;">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                <span>Something went wrong. Please try again.</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
