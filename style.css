@@ -373,3 +373,33 @@ input#pesel:disabled {
     cursor: not-allowed;
     border-color: var(--border);
 }
+
+/* ===== Plan Details Buttons ===== */
+.plan-details-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.plan-details-btn {
+    flex: 1;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--white);
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plan-details-btn:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+}
+
+.plan-details-btn:active {
+    transform: scale(0.98);
+}
