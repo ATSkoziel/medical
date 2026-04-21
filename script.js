@@ -2,7 +2,7 @@
 // CONFIGURATION — Replace this URL with your Google Apps Script
 // web app URL after deployment (see README.md for instructions)
 // ============================================================
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwD0UZLCdPDsCxI1EHDk1C3Gb-sT3U6bAyCueKLvM8Be4uK9ChBCPeDPuLb3RBIDLg0/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbziGVoDB56qtU0Gb23AcOmSgILN2YrCj8OglmxaVWoramjWJcWxDuBtPOQ--uzBgevz/exec';
 
 // ===== DOM Elements =====
 const form = document.getElementById('registrationForm');
@@ -39,6 +39,9 @@ const fields = [
     { id: 'zipCode',          type: 'input',  required: true },
     { id: 'countryOfResidence', type: 'input', required: true },
     { id: 'addressLine',      type: 'input',  required: true },
+    // -- Other Details --
+    { id: 'haveCompany',      type: 'radio',  required: false },
+    // -- Plan Selection --
     { id: 'plan',             type: 'select', required: true,  validate: v => v !== '', msg: 'Please select a plan' },
 ];
 
@@ -46,9 +49,9 @@ const fields = [
 fields.forEach(field => {
     if (field.type === 'radio') {
         // For radio: validate on change
-        document.querySelectorAll('input[name="sex"]').forEach(radio => {
+        document.querySelectorAll(`input[name="${field.id}"]`).forEach(radio => {
             radio.addEventListener('change', () => {
-                document.getElementById('sexError').textContent = '';
+                document.getElementById(field.id + 'Error').textContent = '';
             });
         });
         return;
@@ -98,7 +101,7 @@ form.addEventListener('submit', async (e) => {
     fields.forEach(field => {
         if (field.type === 'radio' && field.required) {
             if (!field.validate()) {
-                document.getElementById('sexError').textContent = field.msg;
+                document.getElementById(field.id + 'Error').textContent = field.msg;
                 isValid = false;
             }
             return;
@@ -127,6 +130,7 @@ form.addEventListener('submit', async (e) => {
 
     // Collect form data
     const sexRadio = document.querySelector('input[name="sex"]:checked');
+    const haveCompanyRadio = document.querySelector('input[name="haveCompany"]:checked');
     const data = {
         timestamp: new Date().toISOString(),
         // Basic Data
@@ -154,6 +158,8 @@ form.addEventListener('submit', async (e) => {
         zipCode: val('zipCode'),
         countryOfResidence: val('countryOfResidence'),
         addressLine: val('addressLine'),
+        // Other Details
+        haveCompany: haveCompanyRadio ? haveCompanyRadio.value : '',
         // Plan Selection
         plan: val('plan'),
     };

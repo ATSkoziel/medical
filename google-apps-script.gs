@@ -8,7 +8,7 @@
 //    Date of Birth | Place of Birth | Country of Birth | Nationality |
 //    Second Nationality | Document Type | Document Number | Date of Issue |
 //    Expiration Date | Country of Issue | Phone | Email |
-//    City | Zip Code | Country of Residence | Address Line
+//    City | Zip Code | Country of Residence | Address Line | Have Company
 // 3. Go to Extensions > Apps Script
 // 4. Paste this code, Deploy as Web app (Execute as: Me, Access: Anyone)
 // 5. Copy the URL into script.js
@@ -42,7 +42,8 @@ function doPost(e) {
       data.zipCode || '',
       data.countryOfResidence || '',
       data.addressLine || '',
-      data.plan || ''
+      data.plan || '',
+      data.haveCompany || ''
     ]);
 
     return ContentService
