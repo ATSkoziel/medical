@@ -2,7 +2,7 @@
 // CONFIGURATION — Replace this URL with your Google Apps Script
 // web app URL after deployment (see README.md for instructions)
 // ============================================================
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbziGVoDB56qtU0Gb23AcOmSgILN2YrCj8OglmxaVWoramjWJcWxDuBtPOQ--uzBgevz/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzD18LJ34Na8y3sQoX902RuBV1kQaHNliWx47X_XcMqpYeaN6H4oKctHMsXJJJ94ag/exec';
 
 // ===== DOM Elements =====
 const form = document.getElementById('registrationForm');
